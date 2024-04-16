@@ -9,9 +9,29 @@ const europeanCities = [
 ];
 
 /// 1 Calculate the averga of people in this cities
+const averagePeople = europeanCities.reduce((acc, cur) => {
+    return acc + cur.people;
+}, 0) / europeanCities.length;
 
-// 2 create a new array with the cities in alphabetical order
+console.log(averagePeople);
+
+// 2 create a new array with the cities objects in alphabetical order by the city name
+const citiesByName = europeanCities.sort((a, b) => {
+    if (a.name > b.name) {
+        return 1;
+    } else if (a.name === b.name) {
+        return 0;
+    } else if (a.name < b.name) {
+        return -1;
+    }
+});
+
+console.log(citiesByName);
 
 // 3 create a new array with only the names of the cities
+const citiesNames = europeanCities.map(city => city.name);
+console.log(citiesNames);
 
 // 4 create a new array with the cities that have more than 1M people
+const bigCities = europeanCities.filter(city => city.people > 1000000);
+console.log(bigCities);
